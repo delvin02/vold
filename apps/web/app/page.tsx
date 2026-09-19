@@ -49,10 +49,31 @@ const capabilities = [
   ['Technical discovery', 'A sharper answer before expensive work starts.'],
 ]
 
+const workflowSteps = [
+  {
+    number: '01',
+    title: 'Name the problem',
+    copy:
+      'We start with the real bottleneck: the workflow that stalls, the data that gets lost, or the process that keeps breaking under pressure.',
+  },
+  {
+    number: '02',
+    title: 'Test the smallest useful fix',
+    copy:
+      'We map the simplest change that creates momentum, then validate it before scaling anything wider.',
+  },
+  {
+    number: '03',
+    title: 'Ship what keeps things moving',
+    copy:
+      'The result is working software, clearer ownership, and a system that is easier to use and easier to trust.',
+  },
+]
+
 function Wordmark() {
   return (
     <a href="#top" className="flex items-center" aria-label="Vold home">
-      <span className="text-[19px] font-semibold tracking-[-0.07em] text-white">VOLD</span>
+      <span className="text-[19px] font-semibold tracking-[-0.07em] text-primary">VOLD</span>
     </a>
   )
 }
@@ -70,8 +91,8 @@ function Button({
     <a
       href={href}
       className={`inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 ${variant === 'primary'
-          ? 'bg-white text-black hover:bg-[#8ba4ff]'
-          : 'border border-white/15 bg-white/[0.04] text-white hover:border-white/30 hover:bg-white/[0.08]'
+        ? 'bg-white text-black hover:bg-[#8ba4ff]'
+        : 'border border-white/15 bg-white/[0.04] text-white hover:border-white/30 hover:bg-white/[0.08]'
         }`}
     >
       {children}
@@ -192,6 +213,22 @@ function QaMockup() {
   )
 }
 
+function ProcessIllustration(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      width="22"
+      height="20"
+      viewBox="0 0 22 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <line x1="0.607422" y1="2.57422" x2="21.5762" y2="2.57422" stroke="#8ba4ff" strokeWidth="4" />
+      <line x1="19.5762" y1="19.624" x2="19.5762" y2="4.57422" stroke="#8ba4ff" strokeWidth="4" />
+    </svg>
+  )
+}
+
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -219,8 +256,8 @@ export default function Page() {
             <a href="#method" className="transition hover:text-white">
               How we work
             </a>
-            <a href="#proof" className="transition hover:text-white">
-              Proof
+            <a href="#capabilities" className="transition hover:text-white">
+              Capabilities
             </a>
             <a href="#contact" className="transition hover:text-white">
               Contact
@@ -263,10 +300,10 @@ export default function Page() {
               </a>
               <a
                 className="rounded-lg px-3 py-3 transition hover:bg-white/[0.06] hover:text-white"
-                href="#proof"
+                href="#capabilities"
                 onClick={() => setMenuOpen(false)}
               >
-                Proof
+                Capabilities
               </a>
               <a
                 className="rounded-lg px-3 py-3 transition hover:bg-white/[0.06] hover:text-white"
@@ -296,9 +333,9 @@ export default function Page() {
               Independent software partner
             </div>
             <h1 className="max-w-4xl text-[clamp(3rem,15vw,8.4rem)] font-medium leading-[0.88] tracking-[-0.085em] sm:text-[clamp(3.6rem,9vw,8.4rem)]">
-              Turn stuck
+              Keep
               <br />
-              <span className="text-[#7c8cff]">into moving.</span>
+              <span className="text-[#7c8cff]">business moving.</span>
             </h1>
           </div>
 
@@ -328,7 +365,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="services" className="relative z-10 border-y border-white/10">
+      <section id="services" className="relative z-10 border-y border-white/10 bg-[#0d1820] bg-[radial-gradient(circle_at_top,_rgba(124,140,255,0.08),transparent_40%)]">
         <div className="mx-auto max-w-[1240px] px-5 py-24 lg:px-8 lg:py-32">
           <div className="mb-14 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div>
@@ -385,97 +422,85 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="method" className="relative z-10 mx-auto max-w-[1240px] px-5 py-24 lg:px-8 lg:py-32">
-        <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
-          <div>
-            <p className="mb-4 text-xs uppercase tracking-[0.22em] text-[#8ba4ff]">The Vold method</p>
-            <h2 className="max-w-md text-4xl font-medium tracking-[-0.06em] sm:text-6xl">
-              Small team.
-              <br />
-              Sharp edges.
-            </h2>
-            <p className="mt-6 max-w-sm leading-relaxed text-white/45">
-              You do not need to speak tech to work with us. We explain the options, keep the decisions visible and show progress as we go.
-            </p>
-          </div>
-
-          <div className="divide-y divide-white/10 border-y border-white/10">
-            {[
-              ['01', 'Start with the risk', 'We turn the brief into a small, testable piece of work — with the unknowns named before the build begins.'],
-              ['02', 'Build the thin slice', 'The first useful path ships early. You see the work, not a slide deck about the work.'],
-              ['03', 'Leave it better', 'Every engagement ends with working software, documentation and a clear next step — even if that step is not us.'],
-            ].map(([num, title, copy]) => (
-              <div key={num} className="grid gap-5 py-7 sm:grid-cols-[60px_1fr] sm:gap-8">
-                <span className="font-mono text-xs text-[#8ba4ff]">{num}</span>
-                <div>
-                  <h3 className="text-xl tracking-[-0.03em]">{title}</h3>
-                  <p className="mt-2 max-w-lg text-sm leading-relaxed text-white/45">{copy}</p>
-                </div>
+      <section id="method" className="relative z-10 border-y border-white/10 bg-[#101b22]">
+        <div className="mx-auto max-w-[1240px] px-5 py-24 lg:px-8 lg:py-32">
+          <div className="grid gap-8 lg:grid-cols-6 lg:gap-20">
+            <div className="lg:sticky lg:top-28 lg:col-span-2 lg:h-fit lg:py-8">
+              <div className="relative w-fit text-5xl font-medium tracking-[-0.08em] text-white lg:text-7xl">
+                <h2>Our process</h2>
+                <span className="absolute -right-3 top-0 text-[#8ba4ff] lg:-right-12 lg:top-2">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-5 md:size-8 lg:size-10">
+                    <path d="M12 2.5V21.5M2.5 12H21.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  </svg>
+                </span>
               </div>
-            ))}
+
+              <p className="mt-7 max-w-sm text-base leading-relaxed text-white/50">
+                We start by naming the problem clearly, then we move from understanding to action with the smallest useful fix and a path that keeps things moving.
+              </p>
+
+              <a
+                href="#contact"
+                className="mt-8 inline-flex items-center gap-2 text-sm text-white/75 transition hover:text-[#8ba4ff]"
+              >
+                <span className="inline-flex size-6 items-center justify-center rounded-full border border-[#8ba4ff]/40 bg-[#8ba4ff]/10">
+                  <ArrowRight className="size-3.5" />
+                </span>
+                Get in touch
+              </a>
+            </div>
+
+            <ul className="relative col-span-4 w-full lg:pl-12">
+              {workflowSteps.map((step, index) => (
+                <li
+                  key={step.number}
+                  className="relative flex flex-col justify-between gap-8 border-t border-white/10 py-8 md:flex-row md:items-start lg:py-10"
+                >
+                  <ProcessIllustration className="absolute right-0 top-4" />
+
+                  <div className="flex size-12 items-center justify-center border border-white/10 bg-white/[0.03] font-mono text-sm text-white/80">
+                    {step.number}
+                  </div>
+
+                  <div className="max-w-2xl md:pr-10">
+                    <h3 className="mb-4 text-2xl font-medium tracking-[-0.05em] text-white lg:text-3xl">
+                      {step.title}
+                    </h3>
+                    <p className="text-base leading-relaxed text-white/50">{step.copy}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      <section id="proof" className="relative z-10 border-y border-white/10 bg-white/[0.02]">
+      <section id="capabilities" className="relative z-10 border-y border-white/10 bg-[#0a1117]">
         <div className="mx-auto max-w-[1240px] px-5 py-24 lg:px-8 lg:py-32">
-          <div className="mb-14 grid gap-6 lg:grid-cols-[1fr_0.65fr]">
+          <div className="mb-14 flex items-end justify-between gap-6">
             <div>
-              <p className="mb-4 text-xs uppercase tracking-[0.22em] text-[#8ba4ff]">No invented proof</p>
-              <h2 className="max-w-3xl text-4xl font-medium tracking-[-0.06em] sm:text-6xl">
-                Credibility you can
+              <p className="mb-4 text-xs uppercase tracking-[0.22em] text-[#8ba4ff]">Capability map</p>
+              <h2 className="text-4xl font-medium tracking-[-0.06em] sm:text-6xl">
+                What we can
                 <br />
-                <span className="text-white/35">inspect yourself.</span>
+                <span className="text-white/35">untangle.</span>
               </h2>
             </div>
-            <p className="max-w-sm self-end text-sm leading-relaxed text-white/45">
-              Vold is new. We will not pretend otherwise. The work, method and technical standard are the proof — and they are open to scrutiny.
-            </p>
+            <span className="hidden font-mono text-xs text-white/25 sm:block">06 capabilities</span>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-3">
-            {[
-              ['Public work', 'Open-source building blocks and useful experiments — not a portfolio of logos we cannot name.', 'View the repo'],
-              ['A clear rate card', 'Straightforward pricing anchors and scope boundaries before a meeting.', 'See how we price'],
-              ['A written standard', 'A public engineering checklist for APIs, integrations and releases.', 'Read the standard'],
-            ].map(([title, copy, link], index) => (
-              <article key={title} className="group rounded-2xl border border-white/10 bg-[#0f1720] p-6 transition hover:border-white/25">
-                <span className="font-mono text-xs text-white/25">0{index + 1}</span>
-                <h3 className="mt-12 text-xl tracking-[-0.03em]">{title}</h3>
-                <p className="mt-3 min-h-20 text-sm leading-relaxed text-white/45">{copy}</p>
-                <a href="#contact" className="mt-6 inline-flex items-center gap-2 text-sm text-white/65 group-hover:text-[#8ba4ff]">
-                  {link} <ArrowRight className="size-3.5 transition group-hover:translate-x-1" />
-                </a>
-              </article>
+          <div className="grid border-l border-t border-white/10 sm:grid-cols-2 lg:grid-cols-3">
+            {capabilities.map(([title, copy], index) => (
+              <div key={title} className="group border-b border-r border-white/10 p-6 transition hover:bg-white/[0.035] sm:p-8">
+                <div className="mb-12 flex justify-between">
+                  <span className="font-mono text-xs text-white/25">0{index + 1}</span>
+                  <ArrowRight className="size-4 -rotate-45 text-white/20 transition group-hover:translate-x-1 group-hover:rotate-0 group-hover:text-[#8ba4ff]" />
+                </div>
+                <h3 className="text-lg tracking-[-0.03em]">{title}</h3>
+                <p className="mt-2 text-sm text-white/40">{copy}</p>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-[1240px] px-5 py-24 lg:px-8 lg:py-32">
-        <div className="mb-14 flex items-end justify-between gap-6">
-          <div>
-            <p className="mb-4 text-xs uppercase tracking-[0.22em] text-[#8ba4ff]">Capability map</p>
-            <h2 className="text-4xl font-medium tracking-[-0.06em] sm:text-6xl">
-              What we can
-              <br />
-              <span className="text-white/35">untangle.</span>
-            </h2>
-          </div>
-          <span className="hidden font-mono text-xs text-white/25 sm:block">06 capabilities</span>
-        </div>
-
-        <div className="grid border-l border-t border-white/10 sm:grid-cols-2 lg:grid-cols-3">
-          {capabilities.map(([title, copy], index) => (
-            <div key={title} className="group border-b border-r border-white/10 p-6 transition hover:bg-white/[0.035] sm:p-8">
-              <div className="mb-12 flex justify-between">
-                <span className="font-mono text-xs text-white/25">0{index + 1}</span>
-                <ArrowRight className="size-4 -rotate-45 text-white/20 transition group-hover:translate-x-1 group-hover:rotate-0 group-hover:text-[#8ba4ff]" />
-              </div>
-              <h3 className="text-lg tracking-[-0.03em]">{title}</h3>
-              <p className="mt-2 text-sm text-white/40">{copy}</p>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -491,8 +516,8 @@ export default function Page() {
             Tell us what is stuck, slow or harder than it should be. We will come back with a useful first answer.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Button href="mailto:hello@vold.com.au">
-              hello@vold.com.au <ArrowRight className="size-4" />
+            <Button href="mailto:delvin@vold.com.au">
+              delvin@vold.com.au <ArrowRight className="size-4" />
             </Button>
             <Button variant="secondary" href="#services">
               See the services
@@ -507,7 +532,7 @@ export default function Page() {
             <div>
               <Wordmark />
               <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/35">
-                Independent software engineering for the systems that matter.
+                Keep business moving with better systems and clearer operations.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-x-16 gap-y-3 text-sm text-white/45">
@@ -517,17 +542,18 @@ export default function Page() {
               <a href="#method" className="hover:text-white">
                 Method
               </a>
-              <a href="#proof" className="hover:text-white">
-                Proof
+              <a href="#capabilities" className="hover:text-white">
+                Capabilities
               </a>
-              <a href="mailto:hello@vold.com.au" className="hover:text-white">
-                Email
+              <a href="mailto:delvin@vold.com.au" className="hover:text-white">
+                delvin@vold.com.au
               </a>
             </div>
           </div>
 
           <div className="flex flex-col justify-between gap-3 border-t border-white/10 pt-5 text-xs text-white/25 sm:flex-row">
-            <span>© 2026 Vold Pty Ltd. Adelaide, Australia.</span>
+            <span>© 2026 Vold</span>
+            <span>Based in Adelaide.</span>
             <span>Built with care. No dark patterns.</span>
           </div>
         </div>
