@@ -248,96 +248,88 @@
   }
 }
 
-@keyframes mesh-drift {
-
-  0%,
-  100% {
-    transform: translate3d(-2%, 0, 0) rotate(-8deg) scale(1);
-  }
-
-  50% {
-    transform: translate3d(3%, 3%, 0) rotate(5deg) scale(1.08);
-  }
-}
-
-@keyframes mesh-drift-reverse {
-
-  0%,
-  100% {
-    transform: translate3d(2%, 2%, 0) rotate(8deg) scale(1.05);
-  }
-
-  50% {
-    transform: translate3d(-4%, -2%, 0) rotate(-6deg) scale(.96);
-  }
-}
-
 .hero-copy {
   animation: hero-reveal 900ms cubic-bezier(.22, 1, .36, 1) both;
 }
 
-.hero-mesh {
-  overflow: hidden;
-  filter: blur(42px) saturate(125%);
-  mask-image: linear-gradient(to bottom, black 10%, black 64%, transparent 100%);
+@keyframes neon-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
-.hero-mesh__orb {
-  position: absolute;
-  border-radius: 999px;
-  mix-blend-mode: screen;
-}
-
-.hero-mesh__orb--violet {
-  top: 8%;
-  left: 14%;
-  width: 48%;
-  height: 70%;
-  background: var(--brand);
-  animation: mesh-drift 12s ease-in-out infinite;
-}
-
-.hero-mesh__orb--blue {
-  top: 0;
-  right: 15%;
-  width: 44%;
-  height: 74%;
-  background: var(--foreground);
-  opacity: 0.55;
-  animation: mesh-drift-reverse 14s ease-in-out infinite;
-}
-
-.hero-mesh__orb--pink {
-  top: 30%;
-  left: 36%;
-  width: 34%;
-  height: 50%;
-  background: var(--chart-1);
-  opacity: 0.7;
-  animation: mesh-drift 10s ease-in-out infinite reverse;
-}
-
-.hero-mesh__glow {
-  position: absolute;
-  inset: 12% 12% 0;
-  border-radius: 999px;
-  background: radial-gradient(ellipse at center, var(--background) 0%, transparent 62%);
-  opacity: 0.5;
-  animation: mesh-drift 16s ease-in-out infinite;
-}
-
-@keyframes hero-beam {
+@keyframes horizon-breathe {
 
   0%,
   100% {
-    transform: translate3d(-50%, -6%, 0) rotate(24deg) scale(.9);
-    opacity: .18;
+    box-shadow:
+      0 0 90px 20px color-mix(in oklch, var(--brand) 55%, transparent),
+      0 0 200px 70px color-mix(in oklch, var(--brand) 24%, transparent);
   }
 
   50% {
-    transform: translate3d(-42%, 8%, 0) rotate(31deg) scale(1.18);
-    opacity: .4;
+    box-shadow:
+      0 0 130px 40px color-mix(in oklch, var(--brand) 75%, transparent),
+      0 0 280px 110px color-mix(in oklch, var(--brand) 34%, transparent);
   }
+}
+
+.horizon-arc {
+  position: absolute;
+  left: 50%;
+  bottom: -76rem;
+  transform: translateX(-50%);
+  width: 90rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--background);
+  opacity: 0;
+  animation:
+    neon-fade-in 900ms 150ms cubic-bezier(.16, 1, .3, 1) both,
+    horizon-breathe 7s ease-in-out 1050ms infinite both;
+}
+
+.horizon-arc::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in oklch, var(--brand) 70%, transparent);
+}
+
+.starfield {
+  opacity: 0;
+  animation: neon-fade-in 1100ms 50ms cubic-bezier(.16, 1, .3, 1) both;
+  background-image:
+    radial-gradient(1.6px 1.6px at 8% 22%, var(--foreground) 100%, transparent),
+    radial-gradient(1.2px 1.2px at 18% 66%, var(--foreground) 100%, transparent),
+    radial-gradient(1.4px 1.4px at 27% 12%, var(--foreground) 100%, transparent),
+    radial-gradient(1px 1px at 36% 48%, var(--foreground) 100%, transparent),
+    radial-gradient(1.6px 1.6px at 47% 78%, var(--foreground) 100%, transparent),
+    radial-gradient(1.2px 1.2px at 58% 20%, var(--foreground) 100%, transparent),
+    radial-gradient(1.4px 1.4px at 66% 58%, var(--foreground) 100%, transparent),
+    radial-gradient(1px 1px at 74% 34%, var(--foreground) 100%, transparent),
+    radial-gradient(1.6px 1.6px at 83% 70%, var(--foreground) 100%, transparent),
+    radial-gradient(1.2px 1.2px at 91% 16%, var(--foreground) 100%, transparent),
+    radial-gradient(1.4px 1.4px at 12% 90%, var(--foreground) 100%, transparent),
+    radial-gradient(1px 1px at 96% 52%, var(--foreground) 100%, transparent);
+  background-repeat: no-repeat;
+}
+
+.watermark-text {
+  font-size: clamp(6rem, 20vw, 18rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--foreground);
+  opacity: 0.035;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
 }
 
 @keyframes workflow-timer {
@@ -356,19 +348,27 @@
   }
 }
 
-.hero-beam {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 140%;
-  height: 60%;
-  background: linear-gradient(90deg, transparent, color-mix(in oklch, var(--brand) 70%, transparent), transparent);
-  filter: blur(60px);
-  animation: hero-beam 9s ease-in-out infinite;
-}
-
 .timer-line {
   animation: workflow-timer 4.2s linear forwards;
+}
+
+@keyframes glow-ring-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.glow-ring::before {
+  content: '';
+  position: absolute;
+  inset: -60%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    color-mix(in oklch, var(--brand) 90%, transparent) 60deg,
+    transparent 140deg
+  );
+  animation: glow-ring-spin 4.5s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

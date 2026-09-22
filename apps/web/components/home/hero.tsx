@@ -4,24 +4,27 @@ import { MarketingButton } from '../site/button'
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative z-10 overflow-hidden bg-background">
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 -z-0 h-[54rem] opacity-0 [background-image:linear-gradient(var(--border)_1px,transparent_1px),linear-gradient(90deg,var(--border)_1px,transparent_1px)] [background-size:80px_80px] [mask-image:linear-gradient(to_bottom,black,transparent_75%)] dark:opacity-40"
+        className="pointer-events-none absolute inset-0 -z-20 opacity-0 dark:opacity-70"
+        aria-hidden="true"
+      >
+        <div className="starfield absolute inset-0" />
+      </div>
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[46rem] opacity-0 [background-image:linear-gradient(var(--border)_1px,transparent_1px),linear-gradient(90deg,var(--border)_1px,transparent_1px)] [background-size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent_75%)] dark:opacity-30"
         aria-hidden="true"
       />
-      <div className="hero-mesh pointer-events-none absolute inset-x-[-15%] top-[-16rem] -z-0 h-[48rem] opacity-0 dark:opacity-35" aria-hidden="true">
-        <div className="hero-mesh__orb hero-mesh__orb--violet" />
-        <div className="hero-mesh__orb hero-mesh__orb--blue" />
-        <div className="hero-mesh__orb hero-mesh__orb--pink" />
-        <div className="hero-mesh__glow" />
-      </div>
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-0 h-[40rem] overflow-hidden opacity-60" aria-hidden="true">
-        <div className="hero-beam" />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[36rem] overflow-hidden opacity-0 dark:opacity-100"
+        aria-hidden="true"
+      >
+        <div className="horizon-arc" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1240px] px-4 pb-16 pt-20 text-center sm:px-5 sm:pb-24 sm:pt-28 lg:px-8 lg:pb-32 lg:pt-36">
+      <div className="relative z-10 mx-auto max-w-[1240px] px-4 pb-28 pt-20 text-center sm:px-5 sm:pb-36 sm:pt-28 lg:px-8 lg:pb-48 lg:pt-36">
         <div className="hero-copy mx-auto max-w-4xl">
-          <h1 className="text-[clamp(3rem,11vw,7.5rem)] font-medium leading-[0.92] tracking-[-0.06em]">
+          <h1 className="text-[clamp(3rem,11vw,7.5rem)] font-medium leading-[0.94] tracking-[-0.04em]">
             Keep <span className="text-brand">business moving.</span>
           </h1>
           <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
@@ -40,11 +43,6 @@ export function Hero() {
             <span className="size-1.5 rounded-full bg-brand" />
             Adelaide · Australia-wide · Remote-first
           </div>
-        </div>
-
-        <div className="mx-auto mt-16 flex max-w-3xl items-center justify-center gap-4 border-y border-border py-6 text-xs text-muted-foreground/80 lg:mt-24">
-          <Gauge className="size-4 text-brand" />
-          <span>Built around outcomes, not billable hours.</span>
         </div>
       </div>
     </section>

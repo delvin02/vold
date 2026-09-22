@@ -33,10 +33,10 @@ function ProcessIllustration(props: React.SVGProps<SVGSVGElement>) {
 export function Process() {
   return (
     <section id="method" className="relative z-10 border-y border-border bg-secondary/20">
-      <div className="mx-auto max-w-[1240px] px-5 py-24 lg:px-8 lg:py-32">
+      <div className="relative mx-auto max-w-[1240px] px-5 py-24 lg:px-8 lg:py-32">
         <div className="grid gap-8 lg:grid-cols-6 lg:gap-20">
           <div className="lg:sticky lg:top-28 lg:col-span-2 lg:h-fit lg:py-8">
-            <div className="relative w-fit text-5xl font-medium tracking-[-0.08em] text-foreground lg:text-7xl">
+            <div className="relative w-fit text-5xl font-medium tracking-[-0.04em] text-foreground lg:text-7xl">
               <h2>Our process</h2>
               <span className="absolute -right-3 top-0 text-brand lg:-right-12 lg:top-2">
                 <ProcessIllustration className="size-5 md:size-8 lg:size-10" />
@@ -70,7 +70,7 @@ export function Process() {
                 </div>
 
                 <div className="max-w-2xl md:pr-10">
-                  <h3 className="mb-4 text-2xl font-medium tracking-[-0.05em] text-foreground lg:text-3xl">
+                  <h3 className="mb-4 text-2xl font-medium tracking-[-0.04em] text-foreground lg:text-3xl">
                     {step.title}
                   </h3>
                   <p className="text-base leading-relaxed text-muted-foreground">{step.copy}</p>
