@@ -5,11 +5,16 @@ export type ServiceHighlight = {
   copy: string
 }
 
+export const serviceCategories = ['Build', 'Connect & Scale', 'Maintain & Protect'] as const
+
+export type ServiceCategory = (typeof serviceCategories)[number]
+
 export type Service = {
   slug: string
   navLabel: string
   title: string
   tag: string
+  category: ServiceCategory
   summary: string
   detail: string
   icon: LucideIcon
@@ -23,6 +28,7 @@ export const services: Service[] = [
     navLabel: 'Foundation',
     title: 'Build the right foundation',
     tag: 'For a new idea',
+    category: 'Build',
     summary:
       'We create the behind-the-scenes systems that help your product work reliably as more customers use it.',
     detail:
@@ -39,6 +45,7 @@ export const services: Service[] = [
     navLabel: 'Integrations',
     title: 'Make your tools work together',
     tag: 'For growing teams',
+    category: 'Connect & Scale',
     summary:
       'We connect the software you already use so information moves smoothly and your team spends less time copying and checking data.',
     detail:
@@ -55,6 +62,7 @@ export const services: Service[] = [
     navLabel: 'Reliability',
     title: 'Remove the worry from releases',
     tag: 'For busy businesses',
+    category: 'Maintain & Protect',
     summary:
       'We test, improve and check your product so you can make changes with confidence instead of crossing your fingers.',
     detail:
@@ -71,6 +79,7 @@ export const services: Service[] = [
     navLabel: 'Website Development',
     title: 'Launch a site that works as hard as you do',
     tag: 'For getting online',
+    category: 'Build',
     summary:
       'We design and build the marketing site, online store or content-driven website that represents you — fast, easy to update, and built to convert.',
     detail:
@@ -87,6 +96,7 @@ export const services: Service[] = [
     navLabel: 'Maintenance',
     title: 'Keep it online, updated and secure',
     tag: 'For sites already live',
+    category: 'Maintain & Protect',
     summary:
       'We take care of hosting, updates, backups and security so your site or app keeps running reliably without needing your attention.',
     detail:
@@ -103,6 +113,7 @@ export const services: Service[] = [
     navLabel: 'Database Optimisation',
     title: 'Make your database fast again',
     tag: 'For growing datasets',
+    category: 'Connect & Scale',
     summary:
       'We tune, monitor and manage the database underneath your product so queries stay fast and growth does not turn into downtime.',
     detail:
@@ -118,4 +129,13 @@ export const services: Service[] = [
 
 export function getService(slug: string) {
   return services.find((service) => service.slug === slug)
+}
+
+export function getServiceGroups() {
+  return serviceCategories
+    .map((category) => ({
+      category,
+      services: services.filter((service) => service.category === category),
+    }))
+    .filter((group) => group.services.length > 0)
 }

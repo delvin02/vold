@@ -16,7 +16,7 @@ export function Hero() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[36rem] overflow-hidden opacity-0 dark:opacity-100"
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[36rem] overflow-hidden"
         aria-hidden="true"
       >
         <div className="horizon-arc" />

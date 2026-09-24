@@ -74,6 +74,11 @@
   --chart-5: oklch(0.5600 0 0);
   --brand: oklch(0.5731 0.2145 258.2467);
   --brand-foreground: oklch(1 0 0);
+  --horizon-ring: color-mix(in oklch, var(--brand) 90%, transparent);
+  --horizon-glow-1: color-mix(in oklch, var(--brand) 85%, transparent);
+  --horizon-glow-1-peak: color-mix(in oklch, var(--brand) 100%, transparent);
+  --horizon-glow-2: color-mix(in oklch, var(--brand) 45%, transparent);
+  --horizon-glow-2-peak: color-mix(in oklch, var(--brand) 60%, transparent);
   --sidebar: oklch(0.9900 0 0);
   --sidebar-foreground: oklch(0 0 0);
   --sidebar-primary: oklch(0 0 0);
@@ -131,6 +136,11 @@
   --chart-5: oklch(0.9200 0 0);
   --brand: oklch(0.6580 0.1851 254.9555);
   --brand-foreground: oklch(1 0 0);
+  --horizon-ring: color-mix(in oklch, var(--brand) 70%, transparent);
+  --horizon-glow-1: color-mix(in oklch, var(--brand) 55%, transparent);
+  --horizon-glow-1-peak: color-mix(in oklch, var(--brand) 75%, transparent);
+  --horizon-glow-2: color-mix(in oklch, var(--brand) 24%, transparent);
+  --horizon-glow-2-peak: color-mix(in oklch, var(--brand) 34%, transparent);
   --sidebar: oklch(0.1800 0 0);
   --sidebar-foreground: oklch(1 0 0);
   --sidebar-primary: oklch(1 0 0);
@@ -187,6 +197,11 @@
     --chart-5: oklch(0.269 0 0);
     --brand: oklch(0.6580 0.1851 254.9555);
     --brand-foreground: oklch(1 0 0);
+    --horizon-ring: color-mix(in oklch, var(--brand) 70%, transparent);
+    --horizon-glow-1: color-mix(in oklch, var(--brand) 55%, transparent);
+    --horizon-glow-1-peak: color-mix(in oklch, var(--brand) 75%, transparent);
+    --horizon-glow-2: color-mix(in oklch, var(--brand) 24%, transparent);
+    --horizon-glow-2-peak: color-mix(in oklch, var(--brand) 34%, transparent);
     --sidebar: oklch(0.205 0 0);
     --sidebar-foreground: oklch(0.985 0 0);
     --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -267,14 +282,14 @@
   0%,
   100% {
     box-shadow:
-      0 0 90px 20px color-mix(in oklch, var(--brand) 55%, transparent),
-      0 0 200px 70px color-mix(in oklch, var(--brand) 24%, transparent);
+      0 0 90px 20px var(--horizon-glow-1),
+      0 0 200px 70px var(--horizon-glow-2);
   }
 
   50% {
     box-shadow:
-      0 0 130px 40px color-mix(in oklch, var(--brand) 75%, transparent),
-      0 0 280px 110px color-mix(in oklch, var(--brand) 34%, transparent);
+      0 0 130px 40px var(--horizon-glow-1-peak),
+      0 0 280px 110px var(--horizon-glow-2-peak);
   }
 }
 
@@ -298,7 +313,7 @@
   position: absolute;
   inset: -1px;
   border-radius: 50%;
-  border: 1px solid color-mix(in oklch, var(--brand) 70%, transparent);
+  border: 1px solid var(--horizon-ring);
 }
 
 .starfield {

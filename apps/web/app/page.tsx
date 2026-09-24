@@ -8,7 +8,7 @@ import { ContactCta } from '@/components/home/contact-cta'
 
 export default function Page() {
   return (
-    <main id="top" className="relative min-h-screen overflow-hidden bg-background text-foreground">
+    <main id="top" className="relative min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
       <ServicesBento />
