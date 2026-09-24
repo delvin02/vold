@@ -6,7 +6,7 @@ export function Wordmark() {
       <svg
         width="22"
         height="22"
-        viewBox="0 0 247 247"
+        viewBox="-6.22 -6.22 259.19 259.19"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="shrink-0"

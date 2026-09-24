@@ -1,4 +1,4 @@
-import { Code2, GitBranch, ShieldCheck, type LucideIcon } from 'lucide-react'
+import { Code2, Database, GitBranch, Globe, ShieldCheck, Wrench, type LucideIcon } from 'lucide-react'
 
 export type ServiceHighlight = {
   title: string
@@ -13,7 +13,7 @@ export type Service = {
   summary: string
   detail: string
   icon: LucideIcon
-  mockup: 'api' | 'integration' | 'qa'
+  mockup: 'api' | 'integration' | 'qa' | 'website' | 'maintenance' | 'database'
   highlights: ServiceHighlight[]
 }
 
@@ -30,8 +30,8 @@ export const services: Service[] = [
     icon: Code2,
     mockup: 'api',
     highlights: [
-      { title: 'API design & development', copy: 'Interfaces your team can build on.' },
-      { title: 'Web application builds', copy: 'From first commit to a useful product.' },
+      { title: 'API design & development', copy: 'No rewrite required when the next client arrives.' },
+      { title: 'Web application builds', copy: 'A product to launch, not a prototype to replace.' },
     ],
   },
   {
@@ -64,6 +64,54 @@ export const services: Service[] = [
     highlights: [
       { title: 'Automated testing & QA', copy: 'Confidence that survives the next release.' },
       { title: 'Technical SEO & performance', copy: 'Faster experiences, easier to find.' },
+    ],
+  },
+  {
+    slug: 'website-development',
+    navLabel: 'Website Development',
+    title: 'Launch a site that works as hard as you do',
+    tag: 'For getting online',
+    summary:
+      'We design and build the marketing site, online store or content-driven website that represents you — fast, easy to update, and built to convert.',
+    detail:
+      'Your website is often the first impression you get. We build fast, accessible sites — from marketing pages to full online stores — on a foundation your team can actually maintain, with a content workflow that does not need a developer for every change.',
+    icon: Globe,
+    mockup: 'website',
+    highlights: [
+      { title: 'Marketing & e-commerce sites', copy: 'Built to convert, not just to launch.' },
+      { title: 'Content you can manage', copy: 'Update copy and pages without calling us.' },
+    ],
+  },
+  {
+    slug: 'maintenance',
+    navLabel: 'Maintenance',
+    title: 'Keep it online, updated and secure',
+    tag: 'For sites already live',
+    summary:
+      'We take care of hosting, updates, backups and security so your site or app keeps running reliably without needing your attention.',
+    detail:
+      'Once something is live, someone still has to keep it that way. We handle hosting, software updates, backups and security patching as an ongoing retainer, and step in fast when something needs fixing — so uptime is our problem, not yours.',
+    icon: Wrench,
+    mockup: 'maintenance',
+    highlights: [
+      { title: 'Hosting & uptime monitoring', copy: 'We notice before your customers do.' },
+      { title: 'Updates, backups & security patching', copy: 'Handled on schedule, not when it breaks.' },
+    ],
+  },
+  {
+    slug: 'database-optimisation',
+    navLabel: 'Database Optimisation',
+    title: 'Make your database fast again',
+    tag: 'For growing datasets',
+    summary:
+      'We tune, monitor and manage the database underneath your product so queries stay fast and growth does not turn into downtime.',
+    detail:
+      'As data grows, the queries and indexes that worked fine at launch start to strain. We audit and tune your database, fix the slow paths before customers notice them, and put ongoing monitoring in place so performance stays predictable as you scale.',
+    icon: Database,
+    mockup: 'database',
+    highlights: [
+      { title: 'Query & index tuning', copy: 'Slow paths found and fixed before customers notice.' },
+      { title: 'Ongoing performance monitoring', copy: 'Problems caught while they are still small.' },
     ],
   },
 ]

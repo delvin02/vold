@@ -1,6 +1,5 @@
 import Link from 'next/link'
 
-import { services } from '@/lib/services'
 import { Wordmark } from './wordmark'
 
 export function Footer() {
@@ -14,25 +13,19 @@ export function Footer() {
               Keep business moving with better systems and clearer operations.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-x-16 gap-y-3 text-sm text-muted-foreground sm:grid-cols-3">
-            <div className="flex flex-col gap-3">
-              {services.map((service) => (
-                <Link key={service.slug} href={`/services/${service.slug}`} className="hover:text-foreground">
-                  {service.navLabel}
-                </Link>
-              ))}
-            </div>
-            <div className="flex flex-col gap-3">
-              <Link href="/#method" className="hover:text-foreground">
-                How we work
-              </Link>
-              <Link href="#contact" className="hover:text-foreground">
-                Contact
-              </Link>
-              <a href="mailto:delvin@vold.com.au" className="hover:text-foreground">
-                delvin@vold.com.au
-              </a>
-            </div>
+          <div className="flex flex-col gap-3 text-sm text-muted-foreground">
+            <Link href="/services" className="hover:text-foreground">
+              Services
+            </Link>
+            <Link href="/#method" className="hover:text-foreground">
+              How we work
+            </Link>
+            <Link href="#contact" className="hover:text-foreground">
+              Contact
+            </Link>
+            <a href="mailto:delvin@vold.com.au" className="hover:text-foreground">
+              delvin@vold.com.au
+            </a>
           </div>
         </div>
 

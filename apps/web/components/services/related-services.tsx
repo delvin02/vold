@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { services, type Service } from '@/lib/services'
 
 export function RelatedServices({ current }: { current: Service }) {
-  const others = services.filter((service) => service.slug !== current.slug)
+  const others = services.filter((service) => service.slug !== current.slug).slice(0, 2)
 
   return (
     <section className="relative z-10 bg-secondary/20">
@@ -35,6 +35,15 @@ export function RelatedServices({ current }: { current: Service }) {
               </Link>
             )
           })}
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 text-sm text-foreground/75 transition hover:text-brand"
+          >
+            See all {services.length} services <ArrowRight className="size-3.5" />
+          </Link>
         </div>
       </div>
     </section>

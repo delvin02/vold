@@ -5,7 +5,7 @@ import { services } from '@/lib/services'
 import { mockups } from '../services/mockups'
 
 export function ServicesBento() {
-  const [featured, ...rest] = services
+  const [featured, ...rest] = services.slice(0, 3)
 
   if (!featured) {
     return null
@@ -98,6 +98,15 @@ export function ServicesBento() {
               )
             })}
           </div>
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 text-sm text-foreground/75 transition hover:text-brand"
+          >
+            See all {services.length} services <ArrowRight className="size-3.5" />
+          </Link>
         </div>
       </div>
     </section>
