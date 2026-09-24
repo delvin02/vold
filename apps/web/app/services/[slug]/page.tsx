@@ -30,6 +30,7 @@ export async function generateMetadata({
   return {
     title: `${service.title} — Vold`,
     description: service.summary,
+    alternates: { canonical: `/services/${slug}` },
   }
 }
 

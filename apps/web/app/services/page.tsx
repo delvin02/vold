@@ -10,6 +10,7 @@ import { ContactCta } from '@/components/home/contact-cta'
 export const metadata: Metadata = {
   title: 'Services — Vold',
   description: 'Every way Vold helps businesses fix slow, disconnected or confusing software.',
+  alternates: { canonical: '/services' },
 }
 
 export default function ServicesPage() {

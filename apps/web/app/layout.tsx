@@ -8,13 +8,17 @@ import '@workspace/ui/globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { GoogleAnalytics } from '@/components/google-analytics'
 import { cn } from '@workspace/ui/lib/utils'
+import { SITE_URL } from '@/lib/site'
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
 
+const description =
+  'Vold helps organisations streamline disconnected operations and keep their business moving with better software.'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'Vold — Keep business moving',
-  description:
-    'Vold helps organisations streamline disconnected operations and keep their business moving with better software.',
+  description,
   generator: 'v0.app',
   icons: {
     icon: [
@@ -24,6 +28,17 @@ export const metadata: Metadata = {
       },
     ],
     apple: '/favicon.svg',
+  },
+  openGraph: {
+    type: 'website',
+    siteName: 'Vold',
+    title: 'Vold — Keep business moving',
+    description,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vold — Keep business moving',
+    description,
   },
 }
 
