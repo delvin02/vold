@@ -1,4 +1,12 @@
-<svg width="200" height="198" viewBox="0 0 200 198" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M95.5279 1.05565C98.3431 -0.351992 101.657 -0.351989 104.472 1.05565L194.472 46.0557C197.86 47.7496 200 51.2122 200 54.9999V142.639C200 146.427 197.86 149.89 194.472 151.584L104.472 196.584C101.657 197.991 98.3431 197.991 95.5279 196.584L5.52786 151.584C2.14002 149.89 0 146.427 0 142.639V54.9999C0 51.2122 2.14002 47.7496 5.52786 46.0556L95.5279 1.05565Z" fill="black"/>
-  <path d="M100.992 24.9097L174.439 62.9959L173.349 136.988L98.8116 172.894L100.992 93.7085L26.4549 60.8156L100.992 24.9097Z" fill="white"/>
+<svg width="247" height="247" viewBox="-6.22 -6.22 259.19 259.19" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .mark { fill: #000000; }
+    @media (prefers-color-scheme: dark) {
+      .mark { fill: #ffffff; }
+    }
+  </style>
+  <rect class="mark" x="122.667" y="-6.21313" width="87.4328" height="87.4328" rx="15" transform="rotate(45 122.667 -6.21313)" />
+  <rect class="mark" x="191.149" y="62.269" width="87.4328" height="87.4328" rx="15" transform="rotate(45 191.149 62.269)" />
+  <rect class="mark" x="55.6111" y="60.8423" width="87.4328" height="87.4328" rx="15" transform="rotate(45 55.6111 60.8423)" />
+  <rect class="mark" x="124.093" y="129.325" width="87.4328" height="87.4328" rx="15" transform="rotate(45 124.093 129.325)" />
 </svg>

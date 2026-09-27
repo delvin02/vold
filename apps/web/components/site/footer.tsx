@@ -37,6 +37,9 @@ export function Footer() {
               <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground/50">
                 Company
               </p>
+              <Link href="/blog" className="hover:text-foreground">
+                Blog
+              </Link>
               <Link href="/#method" className="hover:text-foreground">
                 How we work
               </Link>

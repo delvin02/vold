@@ -11,6 +11,7 @@ import { MarketingButton } from './button'
 import { ThemeToggle } from './theme-toggle'
 
 const navLinks = [
+  { href: '/blog', label: 'Blog' },
   { href: '/#method', label: 'How we work' },
   { href: '#contact', label: 'Contact' },
 ]
