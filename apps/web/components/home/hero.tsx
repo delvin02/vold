@@ -16,13 +16,13 @@ export function Hero() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[36rem] overflow-hidden"
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[8rem] overflow-hidden sm:h-[12.5rem] lg:h-[36rem]"
         aria-hidden="true"
       >
         <div className="horizon-arc" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1240px] px-4 pb-28 pt-20 text-center sm:px-5 sm:pb-36 sm:pt-28 lg:px-8 lg:pb-48 lg:pt-36">
+      <div className="relative z-10 mx-auto max-w-[1240px] px-4 pb-40 pt-20 text-center sm:px-5 sm:pb-56 sm:pt-28 lg:px-8 lg:pb-48 lg:pt-36">
         <div className="hero-copy mx-auto max-w-4xl">
           <h1 className="text-[clamp(3rem,11vw,7.5rem)] font-medium leading-[0.94] tracking-[-0.04em]">
             Keep <span className="text-brand">business moving.</span>
