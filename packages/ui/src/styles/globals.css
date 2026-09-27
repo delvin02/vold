@@ -337,24 +337,64 @@
   white-space: nowrap;
 }
 
-@keyframes workflow-timer {
-  0% {
-    width: 0%;
-    opacity: 0.8;
+/* Service mockups (components/services/mockups.tsx) */
+@keyframes mock-sweep {
+  from {
+    transform: translateX(-100%);
   }
 
-  10% {
+  to {
+    transform: translateX(250%);
+  }
+}
+
+@keyframes mock-packet {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  12%,
+  88% {
     opacity: 1;
   }
 
   100% {
-    width: 100%;
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes mock-pop {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
     opacity: 1;
   }
 }
 
-.timer-line {
-  animation: workflow-timer 4.2s linear forwards;
+@keyframes mock-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes mock-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
 }
 
 @keyframes glow-ring-spin {
