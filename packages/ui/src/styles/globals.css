@@ -48,6 +48,7 @@
 }
 
 :root {
+  color-scheme: light;
   --background: oklch(0.9900 0 0);
   --foreground: oklch(0 0 0);
   --card: oklch(1 0 0);
@@ -110,6 +111,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --background: oklch(0 0 0);
   --foreground: oklch(1 0 0);
   --card: oklch(0.1400 0 0);
@@ -167,50 +169,6 @@
   --shadow-lg: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 4px 6px -1px hsl(0 0% 0% / 0.18);
   --shadow-xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 8px 10px -1px hsl(0 0% 0% / 0.18);
   --shadow-2xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.45);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    color-scheme: dark;
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --brand: oklch(0.6580 0.1851 254.9555);
-    --brand-foreground: oklch(1 0 0);
-    --horizon-ring: color-mix(in oklch, var(--brand) 70%, transparent);
-    --horizon-glow-1: color-mix(in oklch, var(--brand) 55%, transparent);
-    --horizon-glow-1-peak: color-mix(in oklch, var(--brand) 75%, transparent);
-    --horizon-glow-2: color-mix(in oklch, var(--brand) 24%, transparent);
-    --horizon-glow-2-peak: color-mix(in oklch, var(--brand) 34%, transparent);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
-  }
 }
 
 @layer base {
@@ -278,40 +236,17 @@
 }
 
 :root {
-  --horizon-blur-1: 32px;
-  --horizon-spread-1: 7px;
-  --horizon-blur-1-peak: 46px;
+  /* Chromium's box-shadow rasterizer visibly bands past ~150px combined
+     blur+spread on a circle this large, so these stay flat across
+     breakpoints instead of scaling up with the arc's radius. */
+  --horizon-blur-1: 28px;
+  --horizon-spread-1: 8px;
+  --horizon-blur-1-peak: 40px;
   --horizon-spread-1-peak: 14px;
-  --horizon-blur-2: 70px;
-  --horizon-spread-2: 25px;
-  --horizon-blur-2-peak: 100px;
-  --horizon-spread-2-peak: 39px;
-}
-
-@media (min-width: 640px) {
-  :root {
-    --horizon-blur-1: 50px;
-    --horizon-spread-1: 11px;
-    --horizon-blur-1-peak: 72px;
-    --horizon-spread-1-peak: 22px;
-    --horizon-blur-2: 110px;
-    --horizon-spread-2: 39px;
-    --horizon-blur-2-peak: 154px;
-    --horizon-spread-2-peak: 61px;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --horizon-blur-1: 90px;
-    --horizon-spread-1: 20px;
-    --horizon-blur-1-peak: 130px;
-    --horizon-spread-1-peak: 40px;
-    --horizon-blur-2: 200px;
-    --horizon-spread-2: 70px;
-    --horizon-blur-2-peak: 280px;
-    --horizon-spread-2-peak: 110px;
-  }
+  --horizon-blur-2: 60px;
+  --horizon-spread-2: 18px;
+  --horizon-blur-2-peak: 85px;
+  --horizon-spread-2-peak: 30px;
 }
 
 @keyframes horizon-breathe {
@@ -342,7 +277,7 @@
   opacity: 0;
   animation:
     neon-fade-in 900ms 150ms cubic-bezier(.16, 1, .3, 1) both,
-    horizon-breathe 7s ease-in-out 1050ms infinite both;
+    horizon-breathe 7s ease-in-out 1050ms 3 both;
 }
 
 @media (min-width: 640px) {
