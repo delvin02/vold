@@ -268,9 +268,11 @@
 .horizon-arc {
   position: absolute;
   left: 50%;
-  bottom: -27rem;
+  /* Wide and shallow on phones so the arc's ends run off-screen
+     instead of landing inside the viewport. */
+  bottom: -38rem;
   transform: translateX(-50%);
-  width: 32rem;
+  width: 44rem;
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--background);
@@ -305,19 +307,21 @@
 .starfield {
   opacity: 0;
   animation: neon-fade-in 1100ms 50ms cubic-bezier(.16, 1, .3, 1) both;
+  /* Keep the color stop short of 100%: iOS Safari floods the whole layer
+     with an oklch() color when it shares the 100% position with transparent. */
   background-image:
-    radial-gradient(1.6px 1.6px at 8% 22%, var(--foreground) 100%, transparent),
-    radial-gradient(1.2px 1.2px at 18% 66%, var(--foreground) 100%, transparent),
-    radial-gradient(1.4px 1.4px at 27% 12%, var(--foreground) 100%, transparent),
-    radial-gradient(1px 1px at 36% 48%, var(--foreground) 100%, transparent),
-    radial-gradient(1.6px 1.6px at 47% 78%, var(--foreground) 100%, transparent),
-    radial-gradient(1.2px 1.2px at 58% 20%, var(--foreground) 100%, transparent),
-    radial-gradient(1.4px 1.4px at 66% 58%, var(--foreground) 100%, transparent),
-    radial-gradient(1px 1px at 74% 34%, var(--foreground) 100%, transparent),
-    radial-gradient(1.6px 1.6px at 83% 70%, var(--foreground) 100%, transparent),
-    radial-gradient(1.2px 1.2px at 91% 16%, var(--foreground) 100%, transparent),
-    radial-gradient(1.4px 1.4px at 12% 90%, var(--foreground) 100%, transparent),
-    radial-gradient(1px 1px at 96% 52%, var(--foreground) 100%, transparent);
+    radial-gradient(1.6px 1.6px at 8% 22%, var(--foreground) 90%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 18% 66%, var(--foreground) 90%, transparent 100%),
+    radial-gradient(1.4px 1.4px at 27% 12%, var(--foreground) 90%, transparent 100%),
+    radial-gradient(1px 1px at 36% 48%, var(--foreground) 90%, transparent 100%),
+    radial-gradient(1.6px 1.6px at 47% 78%, var(--foreground) 90%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 58% 20%, var(--foreground) 90%, transparent 100%),
+    radial-gradient(1.4px 1.4px at 66% 58%, var(--foreground) 90%, transparent 100%),
+    radial-gradient(1px 1px at 74% 34%, var(--foreground) 90%, transparent 100%),
+    radial-gradient(1.6px 1.6px at 83% 70%, var(--foreground) 90%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 91% 16%, var(--foreground) 90%, transparent 100%),
+    radial-gradient(1.4px 1.4px at 12% 90%, var(--foreground) 90%, transparent 100%),
+    radial-gradient(1px 1px at 96% 52%, var(--foreground) 90%, transparent 100%);
   background-repeat: no-repeat;
 }
 
